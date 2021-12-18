@@ -51,9 +51,8 @@ $margin: global.$margin;
  * Background image de l'élément background de la card pour le mobile et le desktop
  * @type List
  */
-
 $el-background-background-image: url("../images/image-header-mobile.jpg")  !default;
-$el-background-position: no-repeat center;
+$el-background-position: center;
 $el-background-size: cover !default;
 
 /*

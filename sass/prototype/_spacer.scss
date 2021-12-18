@@ -28,72 +28,72 @@
 $schema-spacer: (
         "margin": (
                 property: margin,
-                space-position: 1 2 3 4,
+                class: "margin",
                 values: spacer.$spacers
         ),
         "margin-x": (
-                property: margin,
-                space-position: 2 4,
+                property: margin-right margin-left,
+                class: "margin-x",
                 values: spacer.$spacers
         ),
         "margin-y": (
-                property: margin,
-                space-position: 1 2,
+                property: margin-top margin-right,
+                class:  "margin-y",
                 values: spacer.$spacers
         ),
         "margin-top": (
-                property: margin,
-                space-position: 1,
+                property: margin-top,
+                class: "margin-top",
                 values: spacer.$spacers
         ),
         "margin-end": (
-                property: margin,
-                space-position: 2,
+                property: margin-right,
+                class: "margin-end",
                 values: spacer.$spacers
         ),
         "margin-bottom": (
-                property: margin,
-                space-position: 3,
+                property: margin-bottom,
+                class: "margin-bottom",
                 values: spacer.$spacers
         ),
         "margin-start": (
-                property: margin,
-                space-position: 4,
+                property: margin-left,
+                class: "margin-start",
                 values: spacer.$spacers
         ),
         "padding": (
                 property: padding,
-                space-position: 1 2 3 4,
+                class: "padding",
                 values: spacer.$spacers
         ),
         "padding-x": (
-                property: padding,
-                space-position: 2 4,
+                property: padding-right padding-left,
+                class: "padding-x",
                 values: spacer.$spacers
         ),
         "padding-y": (
-                property: padding,
-                space-position: 1 2,
+                property: padding-top padding-right,
+                class: "padding-y",
                 values: spacer.$spacers
         ),
         "padding-top": (
-                property: padding,
-                space-position: 1,
+                property: padding-top,
+                class: "padding-top",
                 values: spacer.$spacers
         ),
         "padding-end": (
-                property: padding,
-                space-position: 2,
+                property: padding-right,
+                class: "padding-end",
                 values: spacer.$spacers
         ),
         "padding-bottom": (
-                property: padding,
-                space-position: 3,
+                property: padding-bottom,
+                class: "padding-bottom",
                 values: spacer.$spacers
         ),
         "padding-start": (
-                property: padding,
-                space-position: 4,
+                property: padding-left,
+                class: "padding-start",
                 values: spacer.$spacers
         )
 );
@@ -108,27 +108,13 @@ $schema-spacer: (
   $space-position: map.get($utility, space-position);
 
   // Récupération de la propriété associé à la classe utilitaire
-  $property: map.get($utility, property);
+  $properties: map.get($utility, property);
 
-  // Utilisation d'une classe personalise si présente sinon la classe serra le nom de la propriété
-  $property-class: if(map.has-key($utility, class), map.get($utility, class), $property);
-
-  // Initialisation des variable qui stockant les espacements négatives et positivies
-  $spaces: 0 0 0 0;
-  $negative-spaces: 0 0 0 0;
+  // Utilisation de la classe
+  $property-class:  map.get($utility, class);
 
   @each $breakpoint in map.keys(breakpoint-p.$breakpoint) {
     @each $size, $value in $values {
-
-      // Gére les espacement positive
-      @each $position in $space-position {
-        $spaces: list.set-nth($spaces, $position, $value);
-      }
-
-      // Gére les espacement négative
-      @each $position in $space-position {
-        $negative-spaces: list.set-nth($spaces, $position, -$value);
-      }
 
       // Si `$key` est pas null alors le class serra composé de la clé
       $property-class-modifier: if($key != null, #{$key}, $property-class);
@@ -137,10 +123,9 @@ $schema-spacer: (
 
       @include breakpoint.media-up($breakpoint) {
         .#{$property-class-modifier}-#{$size}#{$infix} {
-          #{$property}: #{$spaces} !important;
-        }
-        .negative-#{$property-class-modifier}-#{$size}#{$infix} {
-          #{$property}: #{$negative-spaces} !important;
+          @each $property in $properties{
+            #{$property}: #{$value} !important;
+          }
         }
       }
     }
