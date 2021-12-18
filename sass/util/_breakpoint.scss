@@ -1,0 +1,43 @@
+@use "../settings/breakpoint-p";
+
+/*-----------------------------------------------------------------*\
+  #UTIL-BREAKPOINTS
+
+  Permet la génération sur lesquelle les classes utilitaires peuvent
+  intervenir
+\*-----------------------------------------------------------------*/
+
+
+/*
+ * Retourne une chaîne vide si le point d'arrêt est le plus petit, sinon retourne le nom avec un tiret devant.
+ * Utile pour créer des utilitaires réactifs.
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+@function infix($name, $breakpoints: breakpoint-p.$breakpoint) {
+  @return if(bp-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+
+/*
+ * Largeur minimum d'un breakpoint. Nul pour le plus petit (premier) point d'arrêt..
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+@function bp-min($name, $breakpoints: breakpoint-p.$breakpoint) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+/*
+ * Média ayant au moins la largeur minimale du point de rupture. Pas de requête pour le point de rupture le plus petit.
+ * Fait en sorte que le @content s'applique au point d'arrêt donné et plus large..
+ */
+@mixin media-up($name, $breakpoints: breakpoint-p.$breakpoint) {
+  $min: bp-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

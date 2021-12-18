@@ -1,0 +1,101 @@
+@use "sass:map";
+
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+
+/*
+ * Liste de polices du body
+ * @type List
+ */
+$font-family: 'Inter', Helvetica, Roboto, Arial, sans-serif !default;
+
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+$font-size: 93.75% !default;
+
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+$lineheight: 1.5 !default;
+
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+$margin: 1rem !default;
+
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+$padding: 1rem !default;
+
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+$padding: 1rem !default;
+
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+$weight-normal: 400 !default;
+
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+$palette: (
+   "blue": (
+      "medium": (
+        color: hsl(244, 38%, 16%),
+      ),
+      "dark": (
+        color: hsl(233, 47%, 7%),
+      ),
+   ),
+   "light": (
+       "primary": (
+         color: hsl(277, 64%, 61%),
+       ),
+   ),
+   "white": (
+      "light": (
+         color: hsl(0, 0%, 100%),
+      ),
+      "medium": (
+         color: hsla(0, 0%, 100%, 0.75),
+      ),
+      "dark": (
+         color: hsla(0, 0%, 100%, 0.6),
+      )
+   )
+);
+
+/*
+ * Background color du body
+ * @type Color
+ */
+$body-background: map.get($palette, "blue", "dark", color) !default;
+
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+$body-font-family: $font-family !default;
+
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+$body-font-color: map.get($palette, "white", "medium", color) !default;
+
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+$radius: .8rem;

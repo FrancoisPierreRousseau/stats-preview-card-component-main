@@ -1,0 +1,3502 @@
+@charset "UTF-8";
+/*------------------------------------------------*\
+  #UTIL-NORMALIZE
+
+  Normalise l'ensemble des comportements au sein
+  d'un navigateur web
+\*-----------------------------------------------*/
+/*
+ * 1. Corriger la hauteur des lignes dans tous les navigateurs.
+ * 2. Empêcher l'ajustement de la taille de la police après un changement d'orientation dans iOS.
+ */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*
+ * Supprime la marge dans tous les navigateurs.
+ */
+body {
+  margin: 0;
+}
+
+/*
+ * Corrige la taille de la police et la marge sur les éléments `h1`
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+/*
+ * Liste de polices du body
+ * @type List
+ */
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+/*
+ * Background color du body
+ * @type Color
+ */
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+/*------------------------------------*\
+  #SETTINGS-TYPOGRAPHY
+\*------------------------------------*/
+/*
+ * Famille de polices pour les éléments d'en-tête.
+ * @type String | List
+ */
+/*
+ * Poids de la police des en-têtes.
+ * @type String
+ */
+/*
+ * Méthode de rendu du texte des en-têtes.
+ * @type String
+ */
+/*
+ * Style de police (par exemple, en italique) des en-têtes.
+ * @type String
+ */
+/*
+ * Couleur des en-têtes.
+ * @type Color
+ */
+/*
+ * Hauteur de ligne des en-têtes.
+ * @type Number
+ */
+/*
+ * Marge inférieure des en-têtes
+ * @type Number
+ */
+/*
+ * Hauteur de ligne du texte à l'intérieur des éléments `<p>`.
+ * @type Number
+ */
+/*
+ * Taille de la police des en têtes.
+ * @type Map
+ *
+ */
+/*
+ * Marge inférieure des paragraphes.
+ * @type Number
+ */
+/*
+ * Méthode de rendu du texte pour le texte du paragraphe.
+ * @type String
+ */
+/*
+ * Taille de police par défaut du corp de la page
+ * @type Number
+ */
+/*-----------------------------------------------*\
+  #TYPOGRAPHY-BASE
+
+  Application des styles de base de la typographie
+  ainsi que des classe utilitaires concernant les
+  en tête
+\*------------------------------------------------*/
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 93.75%;
+  margin-bottom: 1rem;
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: "Inter", Helvetica, Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: white;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+ * Application de la font size des en tête et la génération
+ * des classes utilitaires
+ */
+h1, .h1 {
+  font-size: calc(1.35625rem + 1.275vw);
+}
+@media (min-width: 1200px) {
+  h1, .h1 {
+    font-size: 2.3125rem;
+  }
+}
+
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+/*
+ * Liste de polices du body
+ * @type List
+ */
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+/*
+ * Background color du body
+ * @type Color
+ */
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+/*-----------------------------------------------*\
+  #TYPOGRAPHY-COLORS
+
+  Définition des couleurs de text / liens possible
+\*------------------------------------------------*/
+.text-blue-medium {
+  color: #1b1938;
+}
+
+.text-blue-dark {
+  color: #090b1a;
+}
+
+.text-light-primary {
+  color: #aa5cdb;
+}
+
+.text-white-light {
+  color: white;
+}
+
+.text-white-medium {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.text-white-dark {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/*-----------------------------------------------------------------*\
+  #SETTINGS-BREAKPOINTS
+
+  Permet de paramétré les breakpoints. Le site serra adaptative
+  en fonction de ces breakpoints.
+\*-----------------------------------------------------------------*/
+/*
+ * Une liste de points d'arrêt nommés. Vous pouvez les utiliser avec le mixin `breakpoint()` pour créer rapidement des media queries.
+ * @type Map
+ */
+/*-----------------------------------------------------------------*\
+  #UTIL-BREAKPOINTS
+
+  Permet la génération sur lesquelle les classes utilitaires peuvent
+  intervenir
+\*-----------------------------------------------------------------*/
+/*
+ * Retourne une chaîne vide si le point d'arrêt est le plus petit, sinon retourne le nom avec un tiret devant.
+ * Utile pour créer des utilitaires réactifs.
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Largeur minimum d'un breakpoint. Nul pour le plus petit (premier) point d'arrêt..
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Média ayant au moins la largeur minimale du point de rupture. Pas de requête pour le point de rupture le plus petit.
+ * Fait en sorte que le @content s'applique au point d'arrêt donné et plus large..
+ */
+/*----------------------------------------*\
+  #TYPOGRAPHY-ALIGNEMENT
+\*----------------------------------------*/
+/*
+ * Génère l'ensemble des classe utilitaires permettant l'alignement du text
+ */
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+@media (min-width: 700px) {
+  .text-left-medium {
+    text-align: left !important;
+  }
+}
+@media (min-width: 700px) {
+  .text-right-medium {
+    text-align: right !important;
+  }
+}
+@media (min-width: 700px) {
+  .text-center-medium {
+    text-align: center !important;
+  }
+}
+@media (min-width: 700px) {
+  .text-justify-medium {
+    text-align: justify !important;
+  }
+}
+@media (min-width: 900px) {
+  .text-left-large {
+    text-align: left !important;
+  }
+}
+@media (min-width: 900px) {
+  .text-right-large {
+    text-align: right !important;
+  }
+}
+@media (min-width: 900px) {
+  .text-center-large {
+    text-align: center !important;
+  }
+}
+@media (min-width: 900px) {
+  .text-justify-large {
+    text-align: justify !important;
+  }
+}
+/*------------------------------------------------*\
+  #TYPOGRAPHY-FONT-WEIGHT
+
+  Génération des classes permettant de modifier
+  le poids des polices de caractères
+\*-----------------------------------------------*/
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+.font-weight-normal {
+  font-weight: 400 !important;
+}
+
+/*-----------------------------------------------------------------*\
+  #SETTINGS-BREAKPOINTS
+
+  Permet de paramétré les breakpoints. Le site serra adaptative
+  en fonction de ces breakpoints.
+\*-----------------------------------------------------------------*/
+/*
+ * Une liste de points d'arrêt nommés. Vous pouvez les utiliser avec le mixin `breakpoint()` pour créer rapidement des media queries.
+ * @type Map
+ */
+/*-----------------------------------------------------------------*\
+  #UTIL-BREAKPOINTS
+
+  Permet la génération sur lesquelle les classes utilitaires peuvent
+  intervenir
+\*-----------------------------------------------------------------*/
+/*
+ * Retourne une chaîne vide si le point d'arrêt est le plus petit, sinon retourne le nom avec un tiret devant.
+ * Utile pour créer des utilitaires réactifs.
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Largeur minimum d'un breakpoint. Nul pour le plus petit (premier) point d'arrêt..
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Média ayant au moins la largeur minimale du point de rupture. Pas de requête pour le point de rupture le plus petit.
+ * Fait en sorte que le @content s'applique au point d'arrêt donné et plus large..
+ */
+/*-------------------------------------------------------------------*\
+  #PROTOTYPE-FLEX
+
+  Crée des classes utilitaires appropriées concernant les flexbox
+  ( source intéressante aller dans le code source de bootstrap dans
+  le dossier utilities, les fichiers utilities et bootstrap grid )
+  Note: La classe display flex est conçu dans le fichier display.
+  Théoriquement elle devrait être conçu au sein de ce fichier pour
+  plus de cohérence ( cela dépend pour qui ).
+\*--------------------------------------------------------------------*/
+/*
+ * Schema CSS de l'ensemble des propriétés des flex box ( qui me sont pour l'instant nécessaire) :
+ *   - Property: Nom de la property. Cela serra également le nom de la class par défaut
+ *   - Class: Customisation de la class. Si c'est appliqué, cela serra `class-property` (ex: flex-row)
+ *   - Values: Valeur que la property prendra ( une valeur = une classe utilitaire) :
+ *             Chaque clés au sein de ces valeurs feront partie intégrante de la classe
+ * @type Map
+ */
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+@media (min-width: 700px) {
+  .flex-row-medium {
+    flex-direction: row !important;
+  }
+}
+@media (min-width: 700px) {
+  .flex-column-medium {
+    flex-direction: column !important;
+  }
+}
+@media (min-width: 700px) {
+  .flex-row-reverse-medium {
+    flex-direction: row-reverse !important;
+  }
+}
+@media (min-width: 700px) {
+  .flex-column-reverse-medium {
+    flex-direction: column-reverse !important;
+  }
+}
+@media (min-width: 900px) {
+  .flex-row-large {
+    flex-direction: row !important;
+  }
+}
+@media (min-width: 900px) {
+  .flex-column-large {
+    flex-direction: column !important;
+  }
+}
+@media (min-width: 900px) {
+  .flex-row-reverse-large {
+    flex-direction: row-reverse !important;
+  }
+}
+@media (min-width: 900px) {
+  .flex-column-reverse-large {
+    flex-direction: column-reverse !important;
+  }
+}
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+@media (min-width: 700px) {
+  .justify-content-start-medium {
+    justify-content: flex-start !important;
+  }
+}
+@media (min-width: 700px) {
+  .justify-content-center-medium {
+    justify-content: center !important;
+  }
+}
+@media (min-width: 700px) {
+  .justify-content-between-medium {
+    justify-content: space-between !important;
+  }
+}
+@media (min-width: 700px) {
+  .justify-content-around-medium {
+    justify-content: space-around !important;
+  }
+}
+@media (min-width: 900px) {
+  .justify-content-start-large {
+    justify-content: flex-start !important;
+  }
+}
+@media (min-width: 900px) {
+  .justify-content-center-large {
+    justify-content: center !important;
+  }
+}
+@media (min-width: 900px) {
+  .justify-content-between-large {
+    justify-content: space-between !important;
+  }
+}
+@media (min-width: 900px) {
+  .justify-content-around-large {
+    justify-content: space-around !important;
+  }
+}
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+@media (min-width: 700px) {
+  .align-items-start-medium {
+    align-items: flex-start !important;
+  }
+}
+@media (min-width: 700px) {
+  .align-items-end-medium {
+    align-items: flex-end !important;
+  }
+}
+@media (min-width: 700px) {
+  .align-items-center-medium {
+    align-items: center !important;
+  }
+}
+@media (min-width: 900px) {
+  .align-items-start-large {
+    align-items: flex-start !important;
+  }
+}
+@media (min-width: 900px) {
+  .align-items-end-large {
+    align-items: flex-end !important;
+  }
+}
+@media (min-width: 900px) {
+  .align-items-center-large {
+    align-items: center !important;
+  }
+}
+/*-----------------------------------------------------------------*\
+  #SETTINGS-BREAKPOINTS
+
+  Permet de paramétré les breakpoints. Le site serra adaptative
+  en fonction de ces breakpoints.
+\*-----------------------------------------------------------------*/
+/*
+ * Une liste de points d'arrêt nommés. Vous pouvez les utiliser avec le mixin `breakpoint()` pour créer rapidement des media queries.
+ * @type Map
+ */
+/*-----------------------------------------------------------------*\
+  #UTIL-BREAKPOINTS
+
+  Permet la génération sur lesquelle les classes utilitaires peuvent
+  intervenir
+\*-----------------------------------------------------------------*/
+/*
+ * Retourne une chaîne vide si le point d'arrêt est le plus petit, sinon retourne le nom avec un tiret devant.
+ * Utile pour créer des utilitaires réactifs.
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Largeur minimum d'un breakpoint. Nul pour le plus petit (premier) point d'arrêt..
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Média ayant au moins la largeur minimale du point de rupture. Pas de requête pour le point de rupture le plus petit.
+ * Fait en sorte que le @content s'applique au point d'arrêt donné et plus large..
+ */
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+/*
+ * Liste de polices du body
+ * @type List
+ */
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+/*
+ * Background color du body
+ * @type Color
+ */
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+/*--------------------------------------------------------*\
+  #SETTINGS-SPACER
+
+  Gère les espace globale au margin, padding ect.
+  Permet la cohérence des espacements entre les éléments.
+\*--------------------------------------------------------*/
+/*
+ * Espacement principal baser que la margin globale ( 1rem = font-size 100% = 16px )
+ * @type Number
+ */
+/*----------------------------------------*\
+  #PROTOTYPE-DISPLAY
+\*----------------------------------------*/
+/*
+ * Map contenant toute les classes utilitaires `display`
+ * @type Map
+ */
+/*
+ * Génère toutes les classes `display`
+ */
+.display-block {
+  display: block !important;
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+@media (min-width: 700px) {
+  .display-block-medium {
+    display: block !important;
+  }
+
+  .display-flex-medium {
+    display: flex !important;
+  }
+}
+@media (min-width: 900px) {
+  .display-block-large {
+    display: block !important;
+  }
+
+  .display-flex-large {
+    display: flex !important;
+  }
+}
+/*-----------------------------------------------------------------*\
+  #SETTINGS-BREAKPOINTS
+
+  Permet de paramétré les breakpoints. Le site serra adaptative
+  en fonction de ces breakpoints.
+\*-----------------------------------------------------------------*/
+/*
+ * Une liste de points d'arrêt nommés. Vous pouvez les utiliser avec le mixin `breakpoint()` pour créer rapidement des media queries.
+ * @type Map
+ */
+/*-----------------------------------------------------------------*\
+  #UTIL-BREAKPOINTS
+
+  Permet la génération sur lesquelle les classes utilitaires peuvent
+  intervenir
+\*-----------------------------------------------------------------*/
+/*
+ * Retourne une chaîne vide si le point d'arrêt est le plus petit, sinon retourne le nom avec un tiret devant.
+ * Utile pour créer des utilitaires réactifs.
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Largeur minimum d'un breakpoint. Nul pour le plus petit (premier) point d'arrêt..
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Média ayant au moins la largeur minimale du point de rupture. Pas de requête pour le point de rupture le plus petit.
+ * Fait en sorte que le @content s'applique au point d'arrêt donné et plus large..
+ */
+/*----------------------------------------*\
+  #PROTOTYPE-SIZING
+\*----------------------------------------*/
+/*
+ * Map contenant toutes les classes de `sizing`.
+ * @type Map
+ */
+/*
+ * Map contenant toute les tailles
+ * @type Map
+ */
+.width-25 {
+  width: 25% !important;
+}
+
+.width-50 {
+  width: 50% !important;
+}
+
+.width-75 {
+  width: 75% !important;
+}
+
+.width-100 {
+  width: 100% !important;
+}
+
+.height-25 {
+  height: 25% !important;
+}
+
+.height-50 {
+  height: 50% !important;
+}
+
+.height-75 {
+  height: 75% !important;
+}
+
+.height-100 {
+  height: 100% !important;
+}
+
+@media (min-width: 700px) {
+  .width-25-medium {
+    width: 25% !important;
+  }
+
+  .width-50-medium {
+    width: 50% !important;
+  }
+
+  .width-75-medium {
+    width: 75% !important;
+  }
+
+  .width-100-medium {
+    width: 100% !important;
+  }
+}
+@media (min-width: 700px) {
+  .height-25-medium {
+    height: 25% !important;
+  }
+
+  .height-50-medium {
+    height: 50% !important;
+  }
+
+  .height-75-medium {
+    height: 75% !important;
+  }
+
+  .height-100-medium {
+    height: 100% !important;
+  }
+}
+@media (min-width: 900px) {
+  .width-25-large {
+    width: 25% !important;
+  }
+
+  .width-50-large {
+    width: 50% !important;
+  }
+
+  .width-75-large {
+    width: 75% !important;
+  }
+
+  .width-100-large {
+    width: 100% !important;
+  }
+}
+@media (min-width: 900px) {
+  .height-25-large {
+    height: 25% !important;
+  }
+
+  .height-50-large {
+    height: 50% !important;
+  }
+
+  .height-75-large {
+    height: 75% !important;
+  }
+
+  .height-100-large {
+    height: 100% !important;
+  }
+}
+.vh-100 {
+  height: 100vh;
+}
+
+/*-----------------------------------------------------------------*\
+  #SETTINGS-BREAKPOINTS
+
+  Permet de paramétré les breakpoints. Le site serra adaptative
+  en fonction de ces breakpoints.
+\*-----------------------------------------------------------------*/
+/*
+ * Une liste de points d'arrêt nommés. Vous pouvez les utiliser avec le mixin `breakpoint()` pour créer rapidement des media queries.
+ * @type Map
+ */
+/*-----------------------------------------------------------------*\
+  #UTIL-BREAKPOINTS
+
+  Permet la génération sur lesquelle les classes utilitaires peuvent
+  intervenir
+\*-----------------------------------------------------------------*/
+/*
+ * Retourne une chaîne vide si le point d'arrêt est le plus petit, sinon retourne le nom avec un tiret devant.
+ * Utile pour créer des utilitaires réactifs.
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Largeur minimum d'un breakpoint. Nul pour le plus petit (premier) point d'arrêt..
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Média ayant au moins la largeur minimale du point de rupture. Pas de requête pour le point de rupture le plus petit.
+ * Fait en sorte que le @content s'applique au point d'arrêt donné et plus large..
+ */
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+/*
+ * Liste de polices du body
+ * @type List
+ */
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+/*
+ * Background color du body
+ * @type Color
+ */
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+/*--------------------------------------------------------*\
+  #SETTINGS-SPACER
+
+  Gère les espace globale au margin, padding ect.
+  Permet la cohérence des espacements entre les éléments.
+\*--------------------------------------------------------*/
+/*
+ * Espacement principal baser que la margin globale ( 1rem = font-size 100% = 16px )
+ * @type Number
+ */
+/*-------------------------------------------------------------------*\
+  #PROTOTYPE-SPACER
+
+  Crée des classes utilitaires appropriées concernant les espacement
+  ( source intéressante aller dans le code source de bootstrap dans
+  le dossier utilities, les fichiers utilities et bootstrap grid )
+\*--------------------------------------------------------------------*/
+/*
+ * Schema CSS de l'ensemble des propriétés des margin ( qui me sont pour l'instant nécessaire) :
+ *   - Property: Nom de la property. Cela serra également le nom de la class par défaut
+ *   - Class (optionnel): Customisation de la class. Si c'est appliqué, cela serra `class-property`
+ *                        (ex: display-flex)
+ *   - Space-position: Quelles sont les différents espacement impacté ( ici margin-top, margin-bottom ou les deux ect.).
+ *           margin: 1-Haut 2-droite 3-bas 4-gauche,
+ *           padding: 1-Haut 2-droit 3-Bas 4-Gauche
+ *   - Values: Valeur que la property prendra ( une valeur = une classe utilitaire) :
+ *             Chaque clés au sein de ces valeurs feront partie intégrante de la classe
+ * @type Map
+ */
+.margin-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.negative-margin-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.margin-1 {
+  margin: 0.25rem 0.25rem 0.25rem 0.25rem !important;
+}
+
+.negative-margin-1 {
+  margin: 0.25rem 0.25rem 0.25rem -0.25rem !important;
+}
+
+.margin-2 {
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+}
+
+.negative-margin-2 {
+  margin: 0.5rem 0.5rem 0.5rem -0.5rem !important;
+}
+
+.margin-3 {
+  margin: 1rem 1rem 1rem 1rem !important;
+}
+
+.negative-margin-3 {
+  margin: 1rem 1rem 1rem -1rem !important;
+}
+
+.margin-4 {
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.negative-margin-4 {
+  margin: 1.5rem 1.5rem 1.5rem -1.5rem !important;
+}
+
+.margin-5 {
+  margin: 3rem 3rem 3rem 3rem !important;
+}
+
+.negative-margin-5 {
+  margin: 3rem 3rem 3rem -3rem !important;
+}
+
+@media (min-width: 700px) {
+  .margin-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-1-medium {
+    margin: 0.25rem 0.25rem 0.25rem 0.25rem !important;
+  }
+
+  .negative-margin-1-medium {
+    margin: 0.25rem 0.25rem 0.25rem -0.25rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-2-medium {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+  }
+
+  .negative-margin-2-medium {
+    margin: 0.5rem 0.5rem 0.5rem -0.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-3-medium {
+    margin: 1rem 1rem 1rem 1rem !important;
+  }
+
+  .negative-margin-3-medium {
+    margin: 1rem 1rem 1rem -1rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-4-medium {
+    margin: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .negative-margin-4-medium {
+    margin: 1.5rem 1.5rem 1.5rem -1.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-5-medium {
+    margin: 3rem 3rem 3rem 3rem !important;
+  }
+
+  .negative-margin-5-medium {
+    margin: 3rem 3rem 3rem -3rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-0-large {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-0-large {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-1-large {
+    margin: 0.25rem 0.25rem 0.25rem 0.25rem !important;
+  }
+
+  .negative-margin-1-large {
+    margin: 0.25rem 0.25rem 0.25rem -0.25rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-2-large {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+  }
+
+  .negative-margin-2-large {
+    margin: 0.5rem 0.5rem 0.5rem -0.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-3-large {
+    margin: 1rem 1rem 1rem 1rem !important;
+  }
+
+  .negative-margin-3-large {
+    margin: 1rem 1rem 1rem -1rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-4-large {
+    margin: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .negative-margin-4-large {
+    margin: 1.5rem 1.5rem 1.5rem -1.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-5-large {
+    margin: 3rem 3rem 3rem 3rem !important;
+  }
+
+  .negative-margin-5-large {
+    margin: 3rem 3rem 3rem -3rem !important;
+  }
+}
+.margin-x-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.negative-margin-x-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.margin-x-1 {
+  margin: 0 0.25rem 0 0.25rem !important;
+}
+
+.negative-margin-x-1 {
+  margin: 0 0.25rem 0 -0.25rem !important;
+}
+
+.margin-x-2 {
+  margin: 0 0.5rem 0 0.5rem !important;
+}
+
+.negative-margin-x-2 {
+  margin: 0 0.5rem 0 -0.5rem !important;
+}
+
+.margin-x-3 {
+  margin: 0 1rem 0 1rem !important;
+}
+
+.negative-margin-x-3 {
+  margin: 0 1rem 0 -1rem !important;
+}
+
+.margin-x-4 {
+  margin: 0 1.5rem 0 1.5rem !important;
+}
+
+.negative-margin-x-4 {
+  margin: 0 1.5rem 0 -1.5rem !important;
+}
+
+.margin-x-5 {
+  margin: 0 3rem 0 3rem !important;
+}
+
+.negative-margin-x-5 {
+  margin: 0 3rem 0 -3rem !important;
+}
+
+@media (min-width: 700px) {
+  .margin-x-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-x-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-x-1-medium {
+    margin: 0 0.25rem 0 0.25rem !important;
+  }
+
+  .negative-margin-x-1-medium {
+    margin: 0 0.25rem 0 -0.25rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-x-2-medium {
+    margin: 0 0.5rem 0 0.5rem !important;
+  }
+
+  .negative-margin-x-2-medium {
+    margin: 0 0.5rem 0 -0.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-x-3-medium {
+    margin: 0 1rem 0 1rem !important;
+  }
+
+  .negative-margin-x-3-medium {
+    margin: 0 1rem 0 -1rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-x-4-medium {
+    margin: 0 1.5rem 0 1.5rem !important;
+  }
+
+  .negative-margin-x-4-medium {
+    margin: 0 1.5rem 0 -1.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-x-5-medium {
+    margin: 0 3rem 0 3rem !important;
+  }
+
+  .negative-margin-x-5-medium {
+    margin: 0 3rem 0 -3rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-x-0-large {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-x-0-large {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-x-1-large {
+    margin: 0 0.25rem 0 0.25rem !important;
+  }
+
+  .negative-margin-x-1-large {
+    margin: 0 0.25rem 0 -0.25rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-x-2-large {
+    margin: 0 0.5rem 0 0.5rem !important;
+  }
+
+  .negative-margin-x-2-large {
+    margin: 0 0.5rem 0 -0.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-x-3-large {
+    margin: 0 1rem 0 1rem !important;
+  }
+
+  .negative-margin-x-3-large {
+    margin: 0 1rem 0 -1rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-x-4-large {
+    margin: 0 1.5rem 0 1.5rem !important;
+  }
+
+  .negative-margin-x-4-large {
+    margin: 0 1.5rem 0 -1.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-x-5-large {
+    margin: 0 3rem 0 3rem !important;
+  }
+
+  .negative-margin-x-5-large {
+    margin: 0 3rem 0 -3rem !important;
+  }
+}
+.margin-y-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.negative-margin-y-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.margin-y-1 {
+  margin: 0.25rem 0.25rem 0 0 !important;
+}
+
+.negative-margin-y-1 {
+  margin: 0.25rem -0.25rem 0 0 !important;
+}
+
+.margin-y-2 {
+  margin: 0.5rem 0.5rem 0 0 !important;
+}
+
+.negative-margin-y-2 {
+  margin: 0.5rem -0.5rem 0 0 !important;
+}
+
+.margin-y-3 {
+  margin: 1rem 1rem 0 0 !important;
+}
+
+.negative-margin-y-3 {
+  margin: 1rem -1rem 0 0 !important;
+}
+
+.margin-y-4 {
+  margin: 1.5rem 1.5rem 0 0 !important;
+}
+
+.negative-margin-y-4 {
+  margin: 1.5rem -1.5rem 0 0 !important;
+}
+
+.margin-y-5 {
+  margin: 3rem 3rem 0 0 !important;
+}
+
+.negative-margin-y-5 {
+  margin: 3rem -3rem 0 0 !important;
+}
+
+@media (min-width: 700px) {
+  .margin-y-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-y-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-y-1-medium {
+    margin: 0.25rem 0.25rem 0 0 !important;
+  }
+
+  .negative-margin-y-1-medium {
+    margin: 0.25rem -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-y-2-medium {
+    margin: 0.5rem 0.5rem 0 0 !important;
+  }
+
+  .negative-margin-y-2-medium {
+    margin: 0.5rem -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-y-3-medium {
+    margin: 1rem 1rem 0 0 !important;
+  }
+
+  .negative-margin-y-3-medium {
+    margin: 1rem -1rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-y-4-medium {
+    margin: 1.5rem 1.5rem 0 0 !important;
+  }
+
+  .negative-margin-y-4-medium {
+    margin: 1.5rem -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-y-5-medium {
+    margin: 3rem 3rem 0 0 !important;
+  }
+
+  .negative-margin-y-5-medium {
+    margin: 3rem -3rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-y-0-large {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-y-0-large {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-y-1-large {
+    margin: 0.25rem 0.25rem 0 0 !important;
+  }
+
+  .negative-margin-y-1-large {
+    margin: 0.25rem -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-y-2-large {
+    margin: 0.5rem 0.5rem 0 0 !important;
+  }
+
+  .negative-margin-y-2-large {
+    margin: 0.5rem -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-y-3-large {
+    margin: 1rem 1rem 0 0 !important;
+  }
+
+  .negative-margin-y-3-large {
+    margin: 1rem -1rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-y-4-large {
+    margin: 1.5rem 1.5rem 0 0 !important;
+  }
+
+  .negative-margin-y-4-large {
+    margin: 1.5rem -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-y-5-large {
+    margin: 3rem 3rem 0 0 !important;
+  }
+
+  .negative-margin-y-5-large {
+    margin: 3rem -3rem 0 0 !important;
+  }
+}
+.margin-top-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.negative-margin-top-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.margin-top-1 {
+  margin: 0.25rem 0 0 0 !important;
+}
+
+.negative-margin-top-1 {
+  margin: -0.25rem 0 0 0 !important;
+}
+
+.margin-top-2 {
+  margin: 0.5rem 0 0 0 !important;
+}
+
+.negative-margin-top-2 {
+  margin: -0.5rem 0 0 0 !important;
+}
+
+.margin-top-3 {
+  margin: 1rem 0 0 0 !important;
+}
+
+.negative-margin-top-3 {
+  margin: -1rem 0 0 0 !important;
+}
+
+.margin-top-4 {
+  margin: 1.5rem 0 0 0 !important;
+}
+
+.negative-margin-top-4 {
+  margin: -1.5rem 0 0 0 !important;
+}
+
+.margin-top-5 {
+  margin: 3rem 0 0 0 !important;
+}
+
+.negative-margin-top-5 {
+  margin: -3rem 0 0 0 !important;
+}
+
+@media (min-width: 700px) {
+  .margin-top-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-top-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-top-1-medium {
+    margin: 0.25rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-1-medium {
+    margin: -0.25rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-top-2-medium {
+    margin: 0.5rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-2-medium {
+    margin: -0.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-top-3-medium {
+    margin: 1rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-3-medium {
+    margin: -1rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-top-4-medium {
+    margin: 1.5rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-4-medium {
+    margin: -1.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-top-5-medium {
+    margin: 3rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-5-medium {
+    margin: -3rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-top-0-large {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-top-0-large {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-top-1-large {
+    margin: 0.25rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-1-large {
+    margin: -0.25rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-top-2-large {
+    margin: 0.5rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-2-large {
+    margin: -0.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-top-3-large {
+    margin: 1rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-3-large {
+    margin: -1rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-top-4-large {
+    margin: 1.5rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-4-large {
+    margin: -1.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-top-5-large {
+    margin: 3rem 0 0 0 !important;
+  }
+
+  .negative-margin-top-5-large {
+    margin: -3rem 0 0 0 !important;
+  }
+}
+.margin-end-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.negative-margin-end-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.margin-end-1 {
+  margin: 0 0.25rem 0 0 !important;
+}
+
+.negative-margin-end-1 {
+  margin: 0 -0.25rem 0 0 !important;
+}
+
+.margin-end-2 {
+  margin: 0 0.5rem 0 0 !important;
+}
+
+.negative-margin-end-2 {
+  margin: 0 -0.5rem 0 0 !important;
+}
+
+.margin-end-3 {
+  margin: 0 1rem 0 0 !important;
+}
+
+.negative-margin-end-3 {
+  margin: 0 -1rem 0 0 !important;
+}
+
+.margin-end-4 {
+  margin: 0 1.5rem 0 0 !important;
+}
+
+.negative-margin-end-4 {
+  margin: 0 -1.5rem 0 0 !important;
+}
+
+.margin-end-5 {
+  margin: 0 3rem 0 0 !important;
+}
+
+.negative-margin-end-5 {
+  margin: 0 -3rem 0 0 !important;
+}
+
+@media (min-width: 700px) {
+  .margin-end-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-end-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-end-1-medium {
+    margin: 0 0.25rem 0 0 !important;
+  }
+
+  .negative-margin-end-1-medium {
+    margin: 0 -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-end-2-medium {
+    margin: 0 0.5rem 0 0 !important;
+  }
+
+  .negative-margin-end-2-medium {
+    margin: 0 -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-end-3-medium {
+    margin: 0 1rem 0 0 !important;
+  }
+
+  .negative-margin-end-3-medium {
+    margin: 0 -1rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-end-4-medium {
+    margin: 0 1.5rem 0 0 !important;
+  }
+
+  .negative-margin-end-4-medium {
+    margin: 0 -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-end-5-medium {
+    margin: 0 3rem 0 0 !important;
+  }
+
+  .negative-margin-end-5-medium {
+    margin: 0 -3rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-end-0-large {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-end-0-large {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-end-1-large {
+    margin: 0 0.25rem 0 0 !important;
+  }
+
+  .negative-margin-end-1-large {
+    margin: 0 -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-end-2-large {
+    margin: 0 0.5rem 0 0 !important;
+  }
+
+  .negative-margin-end-2-large {
+    margin: 0 -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-end-3-large {
+    margin: 0 1rem 0 0 !important;
+  }
+
+  .negative-margin-end-3-large {
+    margin: 0 -1rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-end-4-large {
+    margin: 0 1.5rem 0 0 !important;
+  }
+
+  .negative-margin-end-4-large {
+    margin: 0 -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-end-5-large {
+    margin: 0 3rem 0 0 !important;
+  }
+
+  .negative-margin-end-5-large {
+    margin: 0 -3rem 0 0 !important;
+  }
+}
+.margin-bottom-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.negative-margin-bottom-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.margin-bottom-1 {
+  margin: 0 0 0.25rem 0 !important;
+}
+
+.negative-margin-bottom-1 {
+  margin: 0 0 -0.25rem 0 !important;
+}
+
+.margin-bottom-2 {
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.negative-margin-bottom-2 {
+  margin: 0 0 -0.5rem 0 !important;
+}
+
+.margin-bottom-3 {
+  margin: 0 0 1rem 0 !important;
+}
+
+.negative-margin-bottom-3 {
+  margin: 0 0 -1rem 0 !important;
+}
+
+.margin-bottom-4 {
+  margin: 0 0 1.5rem 0 !important;
+}
+
+.negative-margin-bottom-4 {
+  margin: 0 0 -1.5rem 0 !important;
+}
+
+.margin-bottom-5 {
+  margin: 0 0 3rem 0 !important;
+}
+
+.negative-margin-bottom-5 {
+  margin: 0 0 -3rem 0 !important;
+}
+
+@media (min-width: 700px) {
+  .margin-bottom-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-bottom-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-bottom-1-medium {
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  .negative-margin-bottom-1-medium {
+    margin: 0 0 -0.25rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-bottom-2-medium {
+    margin: 0 0 0.5rem 0 !important;
+  }
+
+  .negative-margin-bottom-2-medium {
+    margin: 0 0 -0.5rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-bottom-3-medium {
+    margin: 0 0 1rem 0 !important;
+  }
+
+  .negative-margin-bottom-3-medium {
+    margin: 0 0 -1rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-bottom-4-medium {
+    margin: 0 0 1.5rem 0 !important;
+  }
+
+  .negative-margin-bottom-4-medium {
+    margin: 0 0 -1.5rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-bottom-5-medium {
+    margin: 0 0 3rem 0 !important;
+  }
+
+  .negative-margin-bottom-5-medium {
+    margin: 0 0 -3rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-bottom-0-large {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-bottom-0-large {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-bottom-1-large {
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  .negative-margin-bottom-1-large {
+    margin: 0 0 -0.25rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-bottom-2-large {
+    margin: 0 0 0.5rem 0 !important;
+  }
+
+  .negative-margin-bottom-2-large {
+    margin: 0 0 -0.5rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-bottom-3-large {
+    margin: 0 0 1rem 0 !important;
+  }
+
+  .negative-margin-bottom-3-large {
+    margin: 0 0 -1rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-bottom-4-large {
+    margin: 0 0 1.5rem 0 !important;
+  }
+
+  .negative-margin-bottom-4-large {
+    margin: 0 0 -1.5rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-bottom-5-large {
+    margin: 0 0 3rem 0 !important;
+  }
+
+  .negative-margin-bottom-5-large {
+    margin: 0 0 -3rem 0 !important;
+  }
+}
+.margin-start-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.negative-margin-start-0 {
+  margin: 0 0 0 0 !important;
+}
+
+.margin-start-1 {
+  margin: 0 0 0 0.25rem !important;
+}
+
+.negative-margin-start-1 {
+  margin: 0 0 0 -0.25rem !important;
+}
+
+.margin-start-2 {
+  margin: 0 0 0 0.5rem !important;
+}
+
+.negative-margin-start-2 {
+  margin: 0 0 0 -0.5rem !important;
+}
+
+.margin-start-3 {
+  margin: 0 0 0 1rem !important;
+}
+
+.negative-margin-start-3 {
+  margin: 0 0 0 -1rem !important;
+}
+
+.margin-start-4 {
+  margin: 0 0 0 1.5rem !important;
+}
+
+.negative-margin-start-4 {
+  margin: 0 0 0 -1.5rem !important;
+}
+
+.margin-start-5 {
+  margin: 0 0 0 3rem !important;
+}
+
+.negative-margin-start-5 {
+  margin: 0 0 0 -3rem !important;
+}
+
+@media (min-width: 700px) {
+  .margin-start-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-start-0-medium {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-start-1-medium {
+    margin: 0 0 0 0.25rem !important;
+  }
+
+  .negative-margin-start-1-medium {
+    margin: 0 0 0 -0.25rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-start-2-medium {
+    margin: 0 0 0 0.5rem !important;
+  }
+
+  .negative-margin-start-2-medium {
+    margin: 0 0 0 -0.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-start-3-medium {
+    margin: 0 0 0 1rem !important;
+  }
+
+  .negative-margin-start-3-medium {
+    margin: 0 0 0 -1rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-start-4-medium {
+    margin: 0 0 0 1.5rem !important;
+  }
+
+  .negative-margin-start-4-medium {
+    margin: 0 0 0 -1.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .margin-start-5-medium {
+    margin: 0 0 0 3rem !important;
+  }
+
+  .negative-margin-start-5-medium {
+    margin: 0 0 0 -3rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-start-0-large {
+    margin: 0 0 0 0 !important;
+  }
+
+  .negative-margin-start-0-large {
+    margin: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-start-1-large {
+    margin: 0 0 0 0.25rem !important;
+  }
+
+  .negative-margin-start-1-large {
+    margin: 0 0 0 -0.25rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-start-2-large {
+    margin: 0 0 0 0.5rem !important;
+  }
+
+  .negative-margin-start-2-large {
+    margin: 0 0 0 -0.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-start-3-large {
+    margin: 0 0 0 1rem !important;
+  }
+
+  .negative-margin-start-3-large {
+    margin: 0 0 0 -1rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-start-4-large {
+    margin: 0 0 0 1.5rem !important;
+  }
+
+  .negative-margin-start-4-large {
+    margin: 0 0 0 -1.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .margin-start-5-large {
+    margin: 0 0 0 3rem !important;
+  }
+
+  .negative-margin-start-5-large {
+    margin: 0 0 0 -3rem !important;
+  }
+}
+.padding-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.negative-padding-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.padding-1 {
+  padding: 0.25rem 0.25rem 0.25rem 0.25rem !important;
+}
+
+.negative-padding-1 {
+  padding: 0.25rem 0.25rem 0.25rem -0.25rem !important;
+}
+
+.padding-2 {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+}
+
+.negative-padding-2 {
+  padding: 0.5rem 0.5rem 0.5rem -0.5rem !important;
+}
+
+.padding-3 {
+  padding: 1rem 1rem 1rem 1rem !important;
+}
+
+.negative-padding-3 {
+  padding: 1rem 1rem 1rem -1rem !important;
+}
+
+.padding-4 {
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.negative-padding-4 {
+  padding: 1.5rem 1.5rem 1.5rem -1.5rem !important;
+}
+
+.padding-5 {
+  padding: 3rem 3rem 3rem 3rem !important;
+}
+
+.negative-padding-5 {
+  padding: 3rem 3rem 3rem -3rem !important;
+}
+
+@media (min-width: 700px) {
+  .padding-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-1-medium {
+    padding: 0.25rem 0.25rem 0.25rem 0.25rem !important;
+  }
+
+  .negative-padding-1-medium {
+    padding: 0.25rem 0.25rem 0.25rem -0.25rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-2-medium {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+  }
+
+  .negative-padding-2-medium {
+    padding: 0.5rem 0.5rem 0.5rem -0.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-3-medium {
+    padding: 1rem 1rem 1rem 1rem !important;
+  }
+
+  .negative-padding-3-medium {
+    padding: 1rem 1rem 1rem -1rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-4-medium {
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .negative-padding-4-medium {
+    padding: 1.5rem 1.5rem 1.5rem -1.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-5-medium {
+    padding: 3rem 3rem 3rem 3rem !important;
+  }
+
+  .negative-padding-5-medium {
+    padding: 3rem 3rem 3rem -3rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-0-large {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-0-large {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-1-large {
+    padding: 0.25rem 0.25rem 0.25rem 0.25rem !important;
+  }
+
+  .negative-padding-1-large {
+    padding: 0.25rem 0.25rem 0.25rem -0.25rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-2-large {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+  }
+
+  .negative-padding-2-large {
+    padding: 0.5rem 0.5rem 0.5rem -0.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-3-large {
+    padding: 1rem 1rem 1rem 1rem !important;
+  }
+
+  .negative-padding-3-large {
+    padding: 1rem 1rem 1rem -1rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-4-large {
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .negative-padding-4-large {
+    padding: 1.5rem 1.5rem 1.5rem -1.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-5-large {
+    padding: 3rem 3rem 3rem 3rem !important;
+  }
+
+  .negative-padding-5-large {
+    padding: 3rem 3rem 3rem -3rem !important;
+  }
+}
+.padding-x-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.negative-padding-x-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.padding-x-1 {
+  padding: 0 0.25rem 0 0.25rem !important;
+}
+
+.negative-padding-x-1 {
+  padding: 0 0.25rem 0 -0.25rem !important;
+}
+
+.padding-x-2 {
+  padding: 0 0.5rem 0 0.5rem !important;
+}
+
+.negative-padding-x-2 {
+  padding: 0 0.5rem 0 -0.5rem !important;
+}
+
+.padding-x-3 {
+  padding: 0 1rem 0 1rem !important;
+}
+
+.negative-padding-x-3 {
+  padding: 0 1rem 0 -1rem !important;
+}
+
+.padding-x-4 {
+  padding: 0 1.5rem 0 1.5rem !important;
+}
+
+.negative-padding-x-4 {
+  padding: 0 1.5rem 0 -1.5rem !important;
+}
+
+.padding-x-5 {
+  padding: 0 3rem 0 3rem !important;
+}
+
+.negative-padding-x-5 {
+  padding: 0 3rem 0 -3rem !important;
+}
+
+@media (min-width: 700px) {
+  .padding-x-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-x-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-x-1-medium {
+    padding: 0 0.25rem 0 0.25rem !important;
+  }
+
+  .negative-padding-x-1-medium {
+    padding: 0 0.25rem 0 -0.25rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-x-2-medium {
+    padding: 0 0.5rem 0 0.5rem !important;
+  }
+
+  .negative-padding-x-2-medium {
+    padding: 0 0.5rem 0 -0.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-x-3-medium {
+    padding: 0 1rem 0 1rem !important;
+  }
+
+  .negative-padding-x-3-medium {
+    padding: 0 1rem 0 -1rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-x-4-medium {
+    padding: 0 1.5rem 0 1.5rem !important;
+  }
+
+  .negative-padding-x-4-medium {
+    padding: 0 1.5rem 0 -1.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-x-5-medium {
+    padding: 0 3rem 0 3rem !important;
+  }
+
+  .negative-padding-x-5-medium {
+    padding: 0 3rem 0 -3rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-x-0-large {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-x-0-large {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-x-1-large {
+    padding: 0 0.25rem 0 0.25rem !important;
+  }
+
+  .negative-padding-x-1-large {
+    padding: 0 0.25rem 0 -0.25rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-x-2-large {
+    padding: 0 0.5rem 0 0.5rem !important;
+  }
+
+  .negative-padding-x-2-large {
+    padding: 0 0.5rem 0 -0.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-x-3-large {
+    padding: 0 1rem 0 1rem !important;
+  }
+
+  .negative-padding-x-3-large {
+    padding: 0 1rem 0 -1rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-x-4-large {
+    padding: 0 1.5rem 0 1.5rem !important;
+  }
+
+  .negative-padding-x-4-large {
+    padding: 0 1.5rem 0 -1.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-x-5-large {
+    padding: 0 3rem 0 3rem !important;
+  }
+
+  .negative-padding-x-5-large {
+    padding: 0 3rem 0 -3rem !important;
+  }
+}
+.padding-y-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.negative-padding-y-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.padding-y-1 {
+  padding: 0.25rem 0.25rem 0 0 !important;
+}
+
+.negative-padding-y-1 {
+  padding: 0.25rem -0.25rem 0 0 !important;
+}
+
+.padding-y-2 {
+  padding: 0.5rem 0.5rem 0 0 !important;
+}
+
+.negative-padding-y-2 {
+  padding: 0.5rem -0.5rem 0 0 !important;
+}
+
+.padding-y-3 {
+  padding: 1rem 1rem 0 0 !important;
+}
+
+.negative-padding-y-3 {
+  padding: 1rem -1rem 0 0 !important;
+}
+
+.padding-y-4 {
+  padding: 1.5rem 1.5rem 0 0 !important;
+}
+
+.negative-padding-y-4 {
+  padding: 1.5rem -1.5rem 0 0 !important;
+}
+
+.padding-y-5 {
+  padding: 3rem 3rem 0 0 !important;
+}
+
+.negative-padding-y-5 {
+  padding: 3rem -3rem 0 0 !important;
+}
+
+@media (min-width: 700px) {
+  .padding-y-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-y-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-y-1-medium {
+    padding: 0.25rem 0.25rem 0 0 !important;
+  }
+
+  .negative-padding-y-1-medium {
+    padding: 0.25rem -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-y-2-medium {
+    padding: 0.5rem 0.5rem 0 0 !important;
+  }
+
+  .negative-padding-y-2-medium {
+    padding: 0.5rem -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-y-3-medium {
+    padding: 1rem 1rem 0 0 !important;
+  }
+
+  .negative-padding-y-3-medium {
+    padding: 1rem -1rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-y-4-medium {
+    padding: 1.5rem 1.5rem 0 0 !important;
+  }
+
+  .negative-padding-y-4-medium {
+    padding: 1.5rem -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-y-5-medium {
+    padding: 3rem 3rem 0 0 !important;
+  }
+
+  .negative-padding-y-5-medium {
+    padding: 3rem -3rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-y-0-large {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-y-0-large {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-y-1-large {
+    padding: 0.25rem 0.25rem 0 0 !important;
+  }
+
+  .negative-padding-y-1-large {
+    padding: 0.25rem -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-y-2-large {
+    padding: 0.5rem 0.5rem 0 0 !important;
+  }
+
+  .negative-padding-y-2-large {
+    padding: 0.5rem -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-y-3-large {
+    padding: 1rem 1rem 0 0 !important;
+  }
+
+  .negative-padding-y-3-large {
+    padding: 1rem -1rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-y-4-large {
+    padding: 1.5rem 1.5rem 0 0 !important;
+  }
+
+  .negative-padding-y-4-large {
+    padding: 1.5rem -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-y-5-large {
+    padding: 3rem 3rem 0 0 !important;
+  }
+
+  .negative-padding-y-5-large {
+    padding: 3rem -3rem 0 0 !important;
+  }
+}
+.padding-top-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.negative-padding-top-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.padding-top-1 {
+  padding: 0.25rem 0 0 0 !important;
+}
+
+.negative-padding-top-1 {
+  padding: -0.25rem 0 0 0 !important;
+}
+
+.padding-top-2 {
+  padding: 0.5rem 0 0 0 !important;
+}
+
+.negative-padding-top-2 {
+  padding: -0.5rem 0 0 0 !important;
+}
+
+.padding-top-3 {
+  padding: 1rem 0 0 0 !important;
+}
+
+.negative-padding-top-3 {
+  padding: -1rem 0 0 0 !important;
+}
+
+.padding-top-4 {
+  padding: 1.5rem 0 0 0 !important;
+}
+
+.negative-padding-top-4 {
+  padding: -1.5rem 0 0 0 !important;
+}
+
+.padding-top-5 {
+  padding: 3rem 0 0 0 !important;
+}
+
+.negative-padding-top-5 {
+  padding: -3rem 0 0 0 !important;
+}
+
+@media (min-width: 700px) {
+  .padding-top-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-top-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-top-1-medium {
+    padding: 0.25rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-1-medium {
+    padding: -0.25rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-top-2-medium {
+    padding: 0.5rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-2-medium {
+    padding: -0.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-top-3-medium {
+    padding: 1rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-3-medium {
+    padding: -1rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-top-4-medium {
+    padding: 1.5rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-4-medium {
+    padding: -1.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-top-5-medium {
+    padding: 3rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-5-medium {
+    padding: -3rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-top-0-large {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-top-0-large {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-top-1-large {
+    padding: 0.25rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-1-large {
+    padding: -0.25rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-top-2-large {
+    padding: 0.5rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-2-large {
+    padding: -0.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-top-3-large {
+    padding: 1rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-3-large {
+    padding: -1rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-top-4-large {
+    padding: 1.5rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-4-large {
+    padding: -1.5rem 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-top-5-large {
+    padding: 3rem 0 0 0 !important;
+  }
+
+  .negative-padding-top-5-large {
+    padding: -3rem 0 0 0 !important;
+  }
+}
+.padding-end-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.negative-padding-end-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.padding-end-1 {
+  padding: 0 0.25rem 0 0 !important;
+}
+
+.negative-padding-end-1 {
+  padding: 0 -0.25rem 0 0 !important;
+}
+
+.padding-end-2 {
+  padding: 0 0.5rem 0 0 !important;
+}
+
+.negative-padding-end-2 {
+  padding: 0 -0.5rem 0 0 !important;
+}
+
+.padding-end-3 {
+  padding: 0 1rem 0 0 !important;
+}
+
+.negative-padding-end-3 {
+  padding: 0 -1rem 0 0 !important;
+}
+
+.padding-end-4 {
+  padding: 0 1.5rem 0 0 !important;
+}
+
+.negative-padding-end-4 {
+  padding: 0 -1.5rem 0 0 !important;
+}
+
+.padding-end-5 {
+  padding: 0 3rem 0 0 !important;
+}
+
+.negative-padding-end-5 {
+  padding: 0 -3rem 0 0 !important;
+}
+
+@media (min-width: 700px) {
+  .padding-end-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-end-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-end-1-medium {
+    padding: 0 0.25rem 0 0 !important;
+  }
+
+  .negative-padding-end-1-medium {
+    padding: 0 -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-end-2-medium {
+    padding: 0 0.5rem 0 0 !important;
+  }
+
+  .negative-padding-end-2-medium {
+    padding: 0 -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-end-3-medium {
+    padding: 0 1rem 0 0 !important;
+  }
+
+  .negative-padding-end-3-medium {
+    padding: 0 -1rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-end-4-medium {
+    padding: 0 1.5rem 0 0 !important;
+  }
+
+  .negative-padding-end-4-medium {
+    padding: 0 -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-end-5-medium {
+    padding: 0 3rem 0 0 !important;
+  }
+
+  .negative-padding-end-5-medium {
+    padding: 0 -3rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-end-0-large {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-end-0-large {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-end-1-large {
+    padding: 0 0.25rem 0 0 !important;
+  }
+
+  .negative-padding-end-1-large {
+    padding: 0 -0.25rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-end-2-large {
+    padding: 0 0.5rem 0 0 !important;
+  }
+
+  .negative-padding-end-2-large {
+    padding: 0 -0.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-end-3-large {
+    padding: 0 1rem 0 0 !important;
+  }
+
+  .negative-padding-end-3-large {
+    padding: 0 -1rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-end-4-large {
+    padding: 0 1.5rem 0 0 !important;
+  }
+
+  .negative-padding-end-4-large {
+    padding: 0 -1.5rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-end-5-large {
+    padding: 0 3rem 0 0 !important;
+  }
+
+  .negative-padding-end-5-large {
+    padding: 0 -3rem 0 0 !important;
+  }
+}
+.padding-bottom-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.negative-padding-bottom-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.padding-bottom-1 {
+  padding: 0 0 0.25rem 0 !important;
+}
+
+.negative-padding-bottom-1 {
+  padding: 0 0 -0.25rem 0 !important;
+}
+
+.padding-bottom-2 {
+  padding: 0 0 0.5rem 0 !important;
+}
+
+.negative-padding-bottom-2 {
+  padding: 0 0 -0.5rem 0 !important;
+}
+
+.padding-bottom-3 {
+  padding: 0 0 1rem 0 !important;
+}
+
+.negative-padding-bottom-3 {
+  padding: 0 0 -1rem 0 !important;
+}
+
+.padding-bottom-4 {
+  padding: 0 0 1.5rem 0 !important;
+}
+
+.negative-padding-bottom-4 {
+  padding: 0 0 -1.5rem 0 !important;
+}
+
+.padding-bottom-5 {
+  padding: 0 0 3rem 0 !important;
+}
+
+.negative-padding-bottom-5 {
+  padding: 0 0 -3rem 0 !important;
+}
+
+@media (min-width: 700px) {
+  .padding-bottom-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-bottom-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-bottom-1-medium {
+    padding: 0 0 0.25rem 0 !important;
+  }
+
+  .negative-padding-bottom-1-medium {
+    padding: 0 0 -0.25rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-bottom-2-medium {
+    padding: 0 0 0.5rem 0 !important;
+  }
+
+  .negative-padding-bottom-2-medium {
+    padding: 0 0 -0.5rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-bottom-3-medium {
+    padding: 0 0 1rem 0 !important;
+  }
+
+  .negative-padding-bottom-3-medium {
+    padding: 0 0 -1rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-bottom-4-medium {
+    padding: 0 0 1.5rem 0 !important;
+  }
+
+  .negative-padding-bottom-4-medium {
+    padding: 0 0 -1.5rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-bottom-5-medium {
+    padding: 0 0 3rem 0 !important;
+  }
+
+  .negative-padding-bottom-5-medium {
+    padding: 0 0 -3rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-bottom-0-large {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-bottom-0-large {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-bottom-1-large {
+    padding: 0 0 0.25rem 0 !important;
+  }
+
+  .negative-padding-bottom-1-large {
+    padding: 0 0 -0.25rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-bottom-2-large {
+    padding: 0 0 0.5rem 0 !important;
+  }
+
+  .negative-padding-bottom-2-large {
+    padding: 0 0 -0.5rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-bottom-3-large {
+    padding: 0 0 1rem 0 !important;
+  }
+
+  .negative-padding-bottom-3-large {
+    padding: 0 0 -1rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-bottom-4-large {
+    padding: 0 0 1.5rem 0 !important;
+  }
+
+  .negative-padding-bottom-4-large {
+    padding: 0 0 -1.5rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-bottom-5-large {
+    padding: 0 0 3rem 0 !important;
+  }
+
+  .negative-padding-bottom-5-large {
+    padding: 0 0 -3rem 0 !important;
+  }
+}
+.padding-start-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.negative-padding-start-0 {
+  padding: 0 0 0 0 !important;
+}
+
+.padding-start-1 {
+  padding: 0 0 0 0.25rem !important;
+}
+
+.negative-padding-start-1 {
+  padding: 0 0 0 -0.25rem !important;
+}
+
+.padding-start-2 {
+  padding: 0 0 0 0.5rem !important;
+}
+
+.negative-padding-start-2 {
+  padding: 0 0 0 -0.5rem !important;
+}
+
+.padding-start-3 {
+  padding: 0 0 0 1rem !important;
+}
+
+.negative-padding-start-3 {
+  padding: 0 0 0 -1rem !important;
+}
+
+.padding-start-4 {
+  padding: 0 0 0 1.5rem !important;
+}
+
+.negative-padding-start-4 {
+  padding: 0 0 0 -1.5rem !important;
+}
+
+.padding-start-5 {
+  padding: 0 0 0 3rem !important;
+}
+
+.negative-padding-start-5 {
+  padding: 0 0 0 -3rem !important;
+}
+
+@media (min-width: 700px) {
+  .padding-start-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-start-0-medium {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-start-1-medium {
+    padding: 0 0 0 0.25rem !important;
+  }
+
+  .negative-padding-start-1-medium {
+    padding: 0 0 0 -0.25rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-start-2-medium {
+    padding: 0 0 0 0.5rem !important;
+  }
+
+  .negative-padding-start-2-medium {
+    padding: 0 0 0 -0.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-start-3-medium {
+    padding: 0 0 0 1rem !important;
+  }
+
+  .negative-padding-start-3-medium {
+    padding: 0 0 0 -1rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-start-4-medium {
+    padding: 0 0 0 1.5rem !important;
+  }
+
+  .negative-padding-start-4-medium {
+    padding: 0 0 0 -1.5rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .padding-start-5-medium {
+    padding: 0 0 0 3rem !important;
+  }
+
+  .negative-padding-start-5-medium {
+    padding: 0 0 0 -3rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-start-0-large {
+    padding: 0 0 0 0 !important;
+  }
+
+  .negative-padding-start-0-large {
+    padding: 0 0 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-start-1-large {
+    padding: 0 0 0 0.25rem !important;
+  }
+
+  .negative-padding-start-1-large {
+    padding: 0 0 0 -0.25rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-start-2-large {
+    padding: 0 0 0 0.5rem !important;
+  }
+
+  .negative-padding-start-2-large {
+    padding: 0 0 0 -0.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-start-3-large {
+    padding: 0 0 0 1rem !important;
+  }
+
+  .negative-padding-start-3-large {
+    padding: 0 0 0 -1rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-start-4-large {
+    padding: 0 0 0 1.5rem !important;
+  }
+
+  .negative-padding-start-4-large {
+    padding: 0 0 0 -1.5rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .padding-start-5-large {
+    padding: 0 0 0 3rem !important;
+  }
+
+  .negative-padding-start-5-large {
+    padding: 0 0 0 -3rem !important;
+  }
+}
+/*-----------------------------------------------------------------*\
+  #SETTINGS-BREAKPOINTS
+
+  Permet de paramétré les breakpoints. Le site serra adaptative
+  en fonction de ces breakpoints.
+\*-----------------------------------------------------------------*/
+/*
+ * Une liste de points d'arrêt nommés. Vous pouvez les utiliser avec le mixin `breakpoint()` pour créer rapidement des media queries.
+ * @type Map
+ */
+/*-----------------------------------------------------------------*\
+  #UTIL-BREAKPOINTS
+
+  Permet la génération sur lesquelle les classes utilitaires peuvent
+  intervenir
+\*-----------------------------------------------------------------*/
+/*
+ * Retourne une chaîne vide si le point d'arrêt est le plus petit, sinon retourne le nom avec un tiret devant.
+ * Utile pour créer des utilitaires réactifs.
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Largeur minimum d'un breakpoint. Nul pour le plus petit (premier) point d'arrêt..
+ *     >> breakpoint-min(sm, (small: 0, medium: 375px, large: 1440px))
+ */
+/*
+ * Média ayant au moins la largeur minimale du point de rupture. Pas de requête pour le point de rupture le plus petit.
+ * Fait en sorte que le @content s'applique au point d'arrêt donné et plus large..
+ */
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+/*
+ * Liste de polices du body
+ * @type List
+ */
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+/*
+ * Background color du body
+ * @type Color
+ */
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+/*-----------------------------------------------------------------*\
+  #PROTOTYPE-BORDER
+\*-----------------------------------------------------------------*/
+/*
+ * Schema CSS de l'ensemble des propriétés des margin ( qui me sont pour l'instant nécessaire) :
+ *   - Property: Nom de la property. Cela serra également le nom de la class par défaut
+ *   - Class (optionnel): Customisation de la class. Si c'est appliqué, cela serra `class-property`
+ *                        (ex: display-flex)
+ *   - Base: Quelles sont les différents espacement impacté ( ici margin-top, margin-bottom ou les deux ect.).
+ *           border radius position: 1. coin en haut à gauche, 2. coin en haut à droite,
+ *                                   3. coin en bas à droite, 4. coin en bas à gauche
+ *   - Values: Valeur que la property prendra ( une valeur = une classe utilitaire) :
+ *             Chaque clés au sein de ces valeurs feront partie intégrante de la classe
+ * @type Map
+ */
+.rounded {
+  border-radius: 0.8rem 0.8rem 0.8rem 0.8rem !important;
+}
+
+.rounded-top {
+  border-radius: 0.8rem 0.8rem 0 0 !important;
+}
+
+.rounded-right {
+  border-radius: 0 0.8rem 0.8rem 0 !important;
+}
+
+.rounded-bottom {
+  border-radius: 0 0 0.8rem 0.8rem !important;
+}
+
+.rounded-left {
+  border-radius: 0.8rem 0 0 0.8rem !important;
+}
+
+@media (min-width: 700px) {
+  .rounded-medium {
+    border-radius: 0.8rem 0.8rem 0.8rem 0.8rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .rounded-top-medium {
+    border-radius: 0.8rem 0.8rem 0 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .rounded-right-medium {
+    border-radius: 0 0.8rem 0.8rem 0 !important;
+  }
+}
+@media (min-width: 700px) {
+  .rounded-bottom-medium {
+    border-radius: 0 0 0.8rem 0.8rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .rounded-left-medium {
+    border-radius: 0.8rem 0 0 0.8rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .rounded-large {
+    border-radius: 0.8rem 0.8rem 0.8rem 0.8rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .rounded-top-large {
+    border-radius: 0.8rem 0.8rem 0 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .rounded-right-large {
+    border-radius: 0 0.8rem 0.8rem 0 !important;
+  }
+}
+@media (min-width: 900px) {
+  .rounded-bottom-large {
+    border-radius: 0 0 0.8rem 0.8rem !important;
+  }
+}
+@media (min-width: 900px) {
+  .rounded-left-large {
+    border-radius: 0.8rem 0 0 0.8rem !important;
+  }
+}
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+/*
+ * Liste de polices du body
+ * @type List
+ */
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+/*
+ * Background color du body
+ * @type Color
+ */
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+/*-----------------------------------------------------------------*\
+  #SETTINGS-CARD
+
+  Permet de paramétré les propriétés appliqué au sein des cartes
+\*-----------------------------------------------------------------*/
+/*
+ * Arrondis les bords des cards
+ * @type Number
+ */
+/*
+ * Couleur de fond par défaut des cards.
+ * @type Color
+ */
+/*
+ * Largeur maximal des cards
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée concernant le rembourrage des cards
+ * @type Number
+ */
+/*
+ * Ombre d'une carte par défaut.
+ * @type List
+ */
+/*
+ * La carte hérite de la marge globale
+ * @type Number
+ */
+/*------------------------------------*\
+  #SETTINGS-CARD-ELEMENTS
+\*------------------------------------*/
+/*
+ * Background image de l'élément background de la card pour le mobile et le desktop
+ * @type List
+ */
+/*
+ * Valeur utilisée pour fixer la margin tout en haut et tou a gauche de la card
+ * 1.haut 2.droite 3.bas 4.gauche
+ * @type List
+ */
+/*
+ * Largeur utilisée pour l'élément background d'une card auquel je rajoute le
+ * padding que je multi par 2 afin que la width face 100% de la card
+ * @type Number
+ */
+/*
+ * Valeur de la hauteur de la carte
+ * @type Number
+ */
+/*-------------------------------------------------*\
+  #COMPONENTS-CARD-BLOCK
+
+  Application de la structure global des cards
+\*---------------------------------------------------*/
+/*
+ * Structure principale des cards par défaut
+ */
+.card {
+  background: #1b1938;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
+  margin: 1rem;
+}
+
+/*-------------------------------------------------*\
+  #COMPONENTS-CARD-ELEMENTS
+
+  Style des elements se trouvant au sein des cartes
+\*---------------------------------------------------*/
+/*
+ * Structure principale de l'élément background d'une card
+ */
+.card__background {
+  background: url("../images/image-header-mobile.jpg") no-repeat center;
+  background-size: cover;
+  height: 12rem;
+  width: 100%;
+}
+
+.card__body {
+  padding: 1rem;
+}
+
+/*------------------------------------*\
+  #SETTINGS-GLOBAL
+\*------------------------------------*/
+/*
+ * Liste de polices du body
+ * @type List
+ */
+/*
+ * Attribut de taille de police appliqué à `<html>` et `<body>`. Nous utilisons 93.75% par défaut,
+ * la valeur est donc héritée des paramètres du navigateur de l'utilisateur.
+ */
+/*
+ * Hauteur de ligne par défaut pour tous les types. `$global-lineheight` est 24px alors que
+ *`$global-font-size` est 16px
+ */
+/*
+ * Valeur globale utilisée pour la marge sur les composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Valeur globale utilisée pour le rembourrage des composants
+ * @type Number
+ */
+/*
+ * Poids de la police globale utilisée pour les caractères normaux
+ * @type Keyword | Number
+ */
+/*
+ * Couleurs utilisées pour les boutons, les légendes, les liens, etc.
+ */
+/*
+ * Background color du body
+ * @type Color
+ */
+/*
+ * Liste de polices du corps.
+ * @type List
+ */
+/*
+ * Couleur du texte du body.
+ * @type Color
+ */
+/*
+ * Arrondi les bords de tout les éléments qui peuvent avoir un bord arrondis.
+ * @type Number
+ */
+/*-----------------------------------------------------*\
+  #GLOBAL
+
+  ------------------------------
+  Application des styles global au sein des éléments
+  de l'ensemble de l'application
+\*----------------------------------------------------*/
+html {
+  box-sizing: border-box;
+  font-size: 93.75%;
+}
+
+/*
+ * Défini globalement la taille des boîtes pour gérer les largeurs de rembourrage et de bordure.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+ *  Styles du body par défaut
+ */
+body {
+  margin: 0;
+  padding: 0;
+  background: #090b1a;
+  font-family: "Inter", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/*# sourceMappingURL=style.css.map */

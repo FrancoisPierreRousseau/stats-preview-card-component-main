@@ -1,0 +1,48 @@
+@use "sass:map";
+
+@use "../util/breakpoint";
+@use "../settings/breakpoint-p";
+
+/*----------------------------------------*\
+  #PROTOTYPE-SIZING
+\*----------------------------------------*/
+
+/*
+ * Map contenant toutes les classes de `sizing`.
+ * @type Map
+ */
+$prototype-sizing: (
+        width,
+        height
+) !default;
+
+/*
+ * Map contenant toute les tailles
+ * @type Map
+ */
+$prototype-sizes: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%
+) !default;
+
+// Construction des classes utilitaires
+@each $breakpoint in map.keys(breakpoint-p.$breakpoint) {
+  @each $sizing in $prototype-sizing {
+
+    $infix: breakpoint.infix($breakpoint);
+
+    @include breakpoint.media-up($breakpoint) {
+      @each $length, $percentage in $prototype-sizes {
+        .#{$sizing}-#{$length}#{$infix} {
+          #{$sizing}: $percentage !important;
+        }
+      }
+    }
+  }
+}
+
+.vh-100 {
+  height: 100vh;
+}

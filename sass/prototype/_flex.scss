@@ -1,0 +1,80 @@
+@use "sass:map";
+
+@use "../util/breakpoint";
+@use "../settings/breakpoint-p";
+
+/*-------------------------------------------------------------------*\
+  #PROTOTYPE-FLEX
+
+  Crée des classes utilitaires appropriées concernant les flexbox
+  ( source intéressante aller dans le code source de bootstrap dans
+  le dossier utilities, les fichiers utilities et bootstrap grid )
+  Note: La classe display flex est conçu dans le fichier display.
+  Théoriquement elle devrait être conçu au sein de ce fichier pour
+  plus de cohérence ( cela dépend pour qui ).
+\*--------------------------------------------------------------------*/
+
+/*
+ * Schema CSS de l'ensemble des propriétés des flex box ( qui me sont pour l'instant nécessaire) :
+ *   - Property: Nom de la property. Cela serra également le nom de la class par défaut
+ *   - Class: Customisation de la class. Si c'est appliqué, cela serra `class-property` (ex: flex-row)
+ *   - Values: Valeur que la property prendra ( une valeur = une classe utilitaire) :
+ *             Chaque clés au sein de ces valeurs feront partie intégrante de la classe
+ * @type Map
+ */
+$schema-flex: (
+        "flex-direction": (
+                property: flex-direction,
+                class: flex,
+                values: row column row-reverse column-reverse
+        ),
+        "justify-content": (
+                property: justify-content,
+                values: (
+                        start: flex-start,
+                        center: center,
+                        between: space-between,
+                        around: space-around,
+                )
+        ),
+        "align-items": (
+                property: align-items,
+                values: (
+                        start: flex-start,
+                        end: flex-end,
+                        center: center,
+                )
+        )
+) !default;
+
+// Génération des classes utilitaires
+@each $name-utility, $utility in $schema-flex {
+
+  // Récupération des valeurs pour les placer au sein des classes,
+  $values: map.get($utility, values);
+
+  // Récupération de la propriété associer à la classe utilitaire
+  $property: map.get($utility, property);
+
+  // Utilisation d'une classe personalise si présente sinon la classe correspondra au nom de la propriété
+  $property-class: if(map.has-key($utility, class), map.get($utility, class), $property);
+
+  // Génération des min (0 breakpoint)
+  @each $breakpoint in map.keys(breakpoint-p.$breakpoint) {
+    @each $key, $value in $values {
+
+      // Si `$key` est pas null alors le class serra composé de la clé
+      $property-class-modifier: if($key != null, #{$property-class}-#{$key}, $property-class);
+      // Si `$value`est null alors il n'y a pas de clés au sein de la map, donc `$value` vaudra `$key`
+      $value: if($value == null, $key, $value);
+
+      $infix: breakpoint.infix($breakpoint);
+
+      @include breakpoint.media-up($breakpoint) {
+        .#{$property-class-modifier}#{$infix} {
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}

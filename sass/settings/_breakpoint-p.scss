@@ -1,0 +1,17 @@
+/*-----------------------------------------------------------------*\
+  #SETTINGS-BREAKPOINTS
+
+  Permet de paramétré les breakpoints. Le site serra adaptative
+  en fonction de ces breakpoints.
+\*-----------------------------------------------------------------*/
+
+/*
+ * Une liste de points d'arrêt nommés. Vous pouvez les utiliser avec le mixin `breakpoint()` pour créer rapidement des media queries.
+ * @type Map
+ */
+$breakpoint: (
+  small: 0,
+  medium: 700px,
+  large: 900px
+) !default;
+

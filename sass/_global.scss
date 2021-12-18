@@ -1,0 +1,43 @@
+@use "./settings/global";
+
+/*-----------------------------------------------------*\
+  #GLOBAL
+
+  ------------------------------
+  Application des styles global au sein des éléments
+  de l'ensemble de l'application
+\*----------------------------------------------------*/
+
+html {
+  box-sizing: border-box;
+  font-size: global.$font-size;
+}
+
+/*
+ * Défini globalement la taille des boîtes pour gérer les largeurs de rembourrage et de bordure.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+ *  Styles du body par défaut
+ */
+body {
+  margin: 0;
+  padding: 0;
+
+  background: global.$body-background;
+
+  font-family: global.$body-font-family;
+  font-weight: global.$weight-normal;
+  line-height: global.$lineheight;
+
+  color: global.$body-font-color;
+}
+
+
+
+

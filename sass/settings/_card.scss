@@ -1,0 +1,78 @@
+@use "sass:map";
+@use "global";
+
+/*-----------------------------------------------------------------*\
+  #SETTINGS-CARD
+
+  Permet de paramétré les propriétés appliqué au sein des cartes
+\*-----------------------------------------------------------------*/
+
+/*
+ * Arrondis les bords des cards
+ * @type Number
+ */
+$radius: global.$radius !default;
+
+/*
+ * Couleur de fond par défaut des cards.
+ * @type Color
+ */
+$background: map.get(global.$palette, "blue", "medium", color) !default;
+
+/*
+ * Largeur maximal des cards
+ * @type Number
+ */
+$max-width: 1200rem !default;
+
+/*
+ * Valeur globale utilisée concernant le rembourrage des cards
+ * @type Number
+ */
+$padding: global.$padding !default;
+
+/*
+ * Ombre d'une carte par défaut.
+ * @type List
+ */
+$shadow: 0 0 2rem rgba(0, 0, 0, .25);
+
+/*
+ * La carte hérite de la marge globale
+ * @type Number
+ */
+$margin: global.$margin;
+
+/*------------------------------------*\
+  #SETTINGS-CARD-ELEMENTS
+\*------------------------------------*/
+
+/*
+ * Background image de l'élément background de la card pour le mobile et le desktop
+ * @type List
+ */
+$el-background-background-mobile: url("../images/image-header-mobile.jpg") no-repeat center  !default;
+$el-background-background-desktop: url("../images/image-header-desktop.jpg") no-repeat center  !default;
+
+$el-background-size: cover !default;
+
+/*
+ * Valeur utilisée pour fixer la margin tout en haut et tou a gauche de la card
+ * 1.haut 2.droite 3.bas 4.gauche
+ * @type List
+ */
+$el-background-margin: -1rem 0rem 1rem -1rem !default;
+
+/*
+ * Largeur utilisée pour l'élément background d'une card auquel je rajoute le
+ * padding que je multi par 2 afin que la width face 100% de la card
+ * @type Number
+ */
+$el-background-width: 100% !default;
+
+/*
+ * Valeur de la hauteur de la carte
+ * @type Number
+ */
+$el-background-height: 12rem;
+

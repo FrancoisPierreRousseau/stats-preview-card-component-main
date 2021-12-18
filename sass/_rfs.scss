@@ -1,0 +1,16 @@
+@use "settings/global";
+
+/*-----------------------------------------------------------------*\
+  #RFS
+
+  Exemple de configuration :
+  https://codepen.io/MartijnCuppens/pen/voXLGL?editors=1100
+  Lien github :
+  https://github.com/twbs/rfs
+\*-----------------------------------------------------------------*/
+
+
+/*
+ * Base de calcule sur laquelle se base la typography réactive
+ */
+$rfs-base-value: global.$font-size;

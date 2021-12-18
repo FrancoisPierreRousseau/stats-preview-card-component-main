@@ -1,0 +1,149 @@
+@use "sass:map";
+@use "sass:list";
+
+@use "../util/breakpoint";
+@use "../settings/breakpoint-p";
+@use "../settings/spacer";
+
+/*-------------------------------------------------------------------*\
+  #PROTOTYPE-SPACER
+
+  Crée des classes utilitaires appropriées concernant les espacement
+  ( source intéressante aller dans le code source de bootstrap dans
+  le dossier utilities, les fichiers utilities et bootstrap grid )
+\*--------------------------------------------------------------------*/
+
+/*
+ * Schema CSS de l'ensemble des propriétés des margin ( qui me sont pour l'instant nécessaire) :
+ *   - Property: Nom de la property. Cela serra également le nom de la class par défaut
+ *   - Class (optionnel): Customisation de la class. Si c'est appliqué, cela serra `class-property`
+ *                        (ex: display-flex)
+ *   - Space-position: Quelles sont les différents espacement impacté ( ici margin-top, margin-bottom ou les deux ect.).
+ *           margin: 1-Haut 2-droite 3-bas 4-gauche,
+ *           padding: 1-Haut 2-droit 3-Bas 4-Gauche
+ *   - Values: Valeur que la property prendra ( une valeur = une classe utilitaire) :
+ *             Chaque clés au sein de ces valeurs feront partie intégrante de la classe
+ * @type Map
+ */
+$schema-spacer: (
+        "margin": (
+                property: margin,
+                space-position: 1 2 3 4,
+                values: spacer.$spacers
+        ),
+        "margin-x": (
+                property: margin,
+                space-position: 2 4,
+                values: spacer.$spacers
+        ),
+        "margin-y": (
+                property: margin,
+                space-position: 1 2,
+                values: spacer.$spacers
+        ),
+        "margin-top": (
+                property: margin,
+                space-position: 1,
+                values: spacer.$spacers
+        ),
+        "margin-end": (
+                property: margin,
+                space-position: 2,
+                values: spacer.$spacers
+        ),
+        "margin-bottom": (
+                property: margin,
+                space-position: 3,
+                values: spacer.$spacers
+        ),
+        "margin-start": (
+                property: margin,
+                space-position: 4,
+                values: spacer.$spacers
+        ),
+        "padding": (
+                property: padding,
+                space-position: 1 2 3 4,
+                values: spacer.$spacers
+        ),
+        "padding-x": (
+                property: padding,
+                space-position: 2 4,
+                values: spacer.$spacers
+        ),
+        "padding-y": (
+                property: padding,
+                space-position: 1 2,
+                values: spacer.$spacers
+        ),
+        "padding-top": (
+                property: padding,
+                space-position: 1,
+                values: spacer.$spacers
+        ),
+        "padding-end": (
+                property: padding,
+                space-position: 2,
+                values: spacer.$spacers
+        ),
+        "padding-bottom": (
+                property: padding,
+                space-position: 3,
+                values: spacer.$spacers
+        ),
+        "padding-start": (
+                property: padding,
+                space-position: 4,
+                values: spacer.$spacers
+        )
+);
+
+// Génération des classes utilitaires
+@each $key, $utility in $schema-spacer {
+
+  // Récupération des valeurs pour les placer au sein des classes,
+  $values: map.get($utility, values);
+
+  // Récupération des différentes espacements impactés ( margin bottom ? margin left ?)
+  $space-position: map.get($utility, space-position);
+
+  // Récupération de la propriété associé à la classe utilitaire
+  $property: map.get($utility, property);
+
+  // Utilisation d'une classe personalise si présente sinon la classe serra le nom de la propriété
+  $property-class: if(map.has-key($utility, class), map.get($utility, class), $property);
+
+  // Initialisation des variable qui stockant les espacements négatives et positivies
+  $spaces: 0 0 0 0;
+  $negative-spaces: 0 0 0 0;
+
+  @each $breakpoint in map.keys(breakpoint-p.$breakpoint) {
+    @each $size, $value in $values {
+
+      // Gére les espacement positive
+      @each $position in $space-position {
+        $spaces: list.set-nth($spaces, $position, $value);
+      }
+
+      // Gére les espacement négative
+      @each $position in $space-position {
+        $negative-spaces: list.set-nth($spaces, $position, -$value);
+      }
+
+      // Si `$key` est pas null alors le class serra composé de la clé
+      $property-class-modifier: if($key != null, #{$key}, $property-class);
+
+      $infix: breakpoint.infix($breakpoint);
+
+      @include breakpoint.media-up($breakpoint) {
+        .#{$property-class-modifier}-#{$size}#{$infix} {
+          #{$property}: #{$spaces} !important;
+        }
+        .negative-#{$property-class-modifier}-#{$size}#{$infix} {
+          #{$property}: #{$negative-spaces} !important;
+        }
+      }
+    }
+  }
+}
+

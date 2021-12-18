@@ -1,0 +1,43 @@
+@use "sass:map";
+
+/*------------------------------------------------*\
+  #TYPOGRAPHY-FONT-WEIGHT
+
+  Génération des classes permettant de modifier
+  le poids des polices de caractères
+\*-----------------------------------------------*/
+
+$schema-font-weight: (
+        "bold": (
+                property: font-weight,
+                values: 700,
+        ),
+        "normal":(
+                property: font-weight,
+                values: 400,
+        )
+);
+
+
+// Génération des classes utilitaires
+@each $key, $utility in $schema-font-weight {
+
+  // Récupération des valeurs pour les placer au sein des classes,
+  $value: map.get($utility, values);
+
+  // Récupération de la propriété associé à la classe utilitaire
+  $property: map.get($utility, property);
+
+  // Utilisation d'une classe personalise si présente sinon la classe serra le nom de la propriété
+  $property-class: if(map.has-key($utility, class), map.get($utility, class), $property);
+
+
+  // Si `$key` est pas null alors le class serra composé de la clé
+  $property-class-modifier: if($key != null, #{$key}, $property-class);
+  // Si `$value`est null alors il n'y a pas de clés au sein de la map, donc `$value` vaudra `$key`
+  $value: if($value == null, $key, $value);
+
+  .#{$property-class}-#{$property-class-modifier} {
+    #{$property}: #{$value} !important;
+  }
+}

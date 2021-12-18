@@ -1,0 +1,81 @@
+@use "../settings/global";
+@use "sass:map";
+
+/*------------------------------------*\
+  #SETTINGS-TYPOGRAPHY
+\*------------------------------------*/
+
+/*
+ * Famille de polices pour les éléments d'en-tête.
+ * @type String | List
+ */
+$header-font-family: global.$body-font-family !default;
+
+/*
+ * Poids de la police des en-têtes.
+ * @type String
+ */
+$header-font-weight: 700 !default;
+
+/*
+ * Méthode de rendu du texte des en-têtes.
+ * @type String
+ */
+$header-text-rendering: optimizeLegibility !default;
+
+/*
+ * Style de police (par exemple, en italique) des en-têtes.
+ * @type String
+ */
+$header-font-style: normal !default;
+
+/*
+ * Couleur des en-têtes.
+ * @type Color
+ */
+$header-color: map.get(global.$palette, "white", "light", color) !default;
+
+/*
+ * Hauteur de ligne des en-têtes.
+ * @type Number
+ */
+$header-lineheight: 1.4 !default;
+
+/*
+ * Marge inférieure des en-têtes
+ * @type Number
+ */
+$header-margin-bottom: 0.5rem !default;
+
+/*
+ * Hauteur de ligne du texte à l'intérieur des éléments `<p>`.
+ * @type Number
+ */
+$paragraph-lineheight: 1.9 !default;
+
+/*
+ * Taille de la police des en têtes.
+ * @type Map
+ *
+ */
+$header-styles: (
+    'h1': ('font-size': 37px),
+) !default;
+
+/*
+ * Marge inférieure des paragraphes.
+ * @type Number
+ */
+$paragraph-margin-bottom: 1rem !default;
+
+/*
+ * Méthode de rendu du texte pour le texte du paragraphe.
+ * @type String
+ */
+$paragraph-text-rendering: optimizeLegibility !default;
+
+/*
+ * Taille de police par défaut du corp de la page
+ * @type Number
+ */
+$body-fontsize : global.$font-size !default;

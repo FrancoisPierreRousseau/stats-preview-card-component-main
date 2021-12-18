@@ -1,0 +1,89 @@
+@use "sass:list";
+@use "sass:map";
+
+@use "../util/breakpoint";
+@use "../settings/breakpoint-p";
+@use "../settings/global";
+
+/*-----------------------------------------------------------------*\
+  #PROTOTYPE-BORDER
+\*-----------------------------------------------------------------*/
+
+/*
+ * Schema CSS de l'ensemble des propriétés des margin ( qui me sont pour l'instant nécessaire) :
+ *   - Property: Nom de la property. Cela serra également le nom de la class par défaut
+ *   - Class (optionnel): Customisation de la class. Si c'est appliqué, cela serra `class-property`
+ *                        (ex: display-flex)
+ *   - Base: Quelles sont les différents espacement impacté ( ici margin-top, margin-bottom ou les deux ect.).
+ *           border radius position: 1. coin en haut à gauche, 2. coin en haut à droite,
+ *                                   3. coin en bas à droite, 4. coin en bas à gauche
+ *   - Values: Valeur que la property prendra ( une valeur = une classe utilitaire) :
+ *             Chaque clés au sein de ces valeurs feront partie intégrante de la classe
+ * @type Map
+ */
+$schema-border-radius: (
+        "rounded":(
+                property: border-radius,
+                border-radius-position: 1 2 3 4,
+                values: global.$radius
+        ),
+        "rounded-top":(
+                property: border-radius,
+                border-radius-position: 1 2,
+                values: global.$radius
+        ),
+        "rounded-right":(
+                property: border-radius,
+                border-radius-position: 2 3,
+                values: global.$radius
+        ),
+        "rounded-bottom":(
+                property: border-radius,
+                border-radius-position: 3 4,
+                values: global.$radius
+        ),
+        "rounded-left":(
+                property: border-radius,
+                border-radius-position: 1 4,
+                values: global.$radius
+        ),
+);
+
+// Génération des classes utilitaires
+@each $breakpoint in map.keys(breakpoint-p.$breakpoint) {
+  @each $key, $utility in $schema-border-radius {
+
+    // Récupération des valeurs pour les placer au sein des classes,
+    $value: map.get($utility, values);
+
+    // Récupération des différentes bords arrondis impactés ( rounded bottom ? rounded left ?)
+    $border-radius-position: map.get($utility, border-radius-position);
+
+    // Récupération de la propriété associé à la classe utilitaire
+    $property: map.get($utility, property);
+
+    // Utilisation d'une classe personalise si présente sinon la classe serra le nom de la propriété
+    $property-class: if(map.has-key($utility, class), map.get($utility, class), $property);
+
+    // Initialisation d'une variable qui stockera les espacement
+    $border-radius: 0 0 0 0;
+
+    // set-nth(10px 20px 30px, 1, 2em)
+    @each $position in $border-radius-position {
+      $border-radius: list.set-nth($border-radius, $position, $value);
+    }
+
+    // Si `$key` est pas null alors le class serra composé de la clé
+    $property-class-modifier: if($key != null, #{$key}, $property-class);
+    // Si `$value`est null alors il n'y a pas de clés au sein de la map, donc `$value` vaudra `$key`
+    $value: if($value == null, $key, $value);
+
+    $infix: breakpoint.infix($breakpoint);
+
+    @include breakpoint.media-up($breakpoint) {
+      .#{$property-class-modifier}#{$infix} {
+        #{$property}: #{$border-radius} !important;
+      }
+    }
+  }
+}

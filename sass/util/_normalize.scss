@@ -1,0 +1,32 @@
+/*------------------------------------------------*\
+  #UTIL-NORMALIZE
+
+  Normalise l'ensemble des comportements au sein
+  d'un navigateur web
+\*-----------------------------------------------*/
+
+/*
+ * 1. Corriger la hauteur des lignes dans tous les navigateurs.
+ * 2. Empêcher l'ajustement de la taille de la police après un changement d'orientation dans iOS.
+ */
+html {
+  line-height: 1.15; // 1
+  -webkit-text-size-adjust: 100%; // 2
+}
+
+/*
+ * Supprime la marge dans tous les navigateurs.
+ */
+body {
+  margin: 0;
+}
+
+/*
+ * Corrige la taille de la police et la marge sur les éléments `h1`
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+

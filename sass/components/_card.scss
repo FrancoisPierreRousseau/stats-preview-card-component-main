@@ -1,0 +1,38 @@
+@use "../settings/card";
+
+/*-------------------------------------------------*\
+  #COMPONENTS-CARD-BLOCK
+
+  Application de la structure global des cards
+\*---------------------------------------------------*/
+
+/*
+ * Structure principale des cards par défaut
+ */
+.card {
+  background: card.$background;
+  border-radius: card.$radius;
+  box-shadow: card.$shadow;
+  margin: card.$margin;
+}
+
+
+/*-------------------------------------------------*\
+  #COMPONENTS-CARD-ELEMENTS
+
+  Style des elements se trouvant au sein des cartes
+\*---------------------------------------------------*/
+
+/*
+ * Structure principale de l'élément background d'une card
+ */
+.card__background {
+  background: card.$el-background-background-mobile;
+  background-size: card.$el-background-size;
+  height: card.$el-background-height;
+  width: card.$el-background-width;
+}
+
+.card__body {
+  padding: card.$padding;
+}

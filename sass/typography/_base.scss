@@ -1,0 +1,47 @@
+@use "sass:map";
+
+@use "../settings/typography";
+@use "../settings/global";
+
+/*-----------------------------------------------*\
+  #TYPOGRAPHY-BASE
+
+  Application des styles de base de la typographie
+  ainsi que des classe utilitaires concernant les
+  en tête
+\*------------------------------------------------*/
+
+// La typographie se réinitialise
+h1{
+  margin: 0;
+  padding: 0;
+}
+
+// Paragraphs
+p {
+  font-size: global.$font-size;
+  margin-bottom: typography.$paragraph-margin-bottom;
+  line-height: typography.$paragraph-lineheight;
+  text-rendering: typography.$paragraph-text-rendering;
+}
+
+// Headings
+h1, .h1 {
+  font-family: typography.$header-font-family;
+  font-style: typography.$header-font-style;
+  font-weight: typography.$header-font-weight;
+  color: typography.$header-color;
+  text-rendering: typography.$header-text-rendering;
+}
+
+/*
+ * Application de la font size des en tête et la génération
+ * des classes utilitaires
+ */
+@each $header, $headers in typography.$header-styles {
+  @if map-has-key($headers, font-size) {
+    #{$header}, .#{$header} {
+      @include font-size(map-get($headers, font-size));
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@use "global";
+
+/*--------------------------------------------------------*\
+  #SETTINGS-SPACER
+
+  Gère les espace globale au margin, padding ect.
+  Permet la cohérence des espacements entre les éléments.
+\*--------------------------------------------------------*/
+
+/*
+ * Espacement principal baser que la margin globale ( 1rem = font-size 100% = 16px )
+ * @type Number
+ */
+$spacer: global.$margin !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
