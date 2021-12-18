@@ -3368,6 +3368,15 @@ h1, .h1 {
  * @type List
  */
 /*
+ * Définit la façon dont le contenu d'un élément doit se mélanger avec le contenu de l'élément
+ * parent et avec son arrière-plan.
+ * @type keyword
+ */
+/*
+ * Défini la couleur à mélanger avec l'image
+ * @type keyword
+ */
+/*
  * Valeur utilisée pour fixer la margin tout en haut et tou a gauche de la card
  * 1.haut 2.droite 3.bas 4.gauche
  * @type List
@@ -3405,8 +3414,11 @@ h1, .h1 {
  * Structure principale de l'élément background d'une card
  */
 .card__background {
-  background: url("../images/image-header-mobile.jpg") no-repeat center;
+  background-image: url("../images/image-header-mobile.jpg");
   background-size: cover;
+  background-position: no-repeat center;
+  background-color: #aa5cdb;
+  background-blend-mode: multiply;
   height: 12rem;
   width: 100%;
 }

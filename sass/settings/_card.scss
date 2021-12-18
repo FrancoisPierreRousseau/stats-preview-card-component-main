@@ -51,10 +51,25 @@ $margin: global.$margin;
  * Background image de l'élément background de la card pour le mobile et le desktop
  * @type List
  */
-$el-background-background-mobile: url("../images/image-header-mobile.jpg") no-repeat center  !default;
-$el-background-background-desktop: url("../images/image-header-desktop.jpg") no-repeat center  !default;
 
+$el-background-background-image: url("../images/image-header-mobile.jpg")  !default;
+$el-background-position: no-repeat center;
 $el-background-size: cover !default;
+
+/*
+ * Définit la façon dont le contenu d'un élément doit se mélanger avec le contenu de l'élément
+ * parent et avec son arrière-plan.
+ * @type keyword
+ */
+$el-background-blend-mode: multiply;
+
+/*
+ * Défini la couleur à mélanger avec l'image
+ * @type keyword
+ */
+$el-background-color: map.get(global.$palette, "light", "primary", color) !default;
+
+
 
 /*
  * Valeur utilisée pour fixer la margin tout en haut et tou a gauche de la card

@@ -27,8 +27,11 @@
  * Structure principale de l'élément background d'une card
  */
 .card__background {
-  background: card.$el-background-background-mobile;
+  background-image: card.$el-background-background-image;
   background-size: card.$el-background-size;
+  background-position: card.$el-background-position;
+  background-color: card.$el-background-color;
+  background-blend-mode: card.$el-background-blend-mode;
   height: card.$el-background-height;
   width: card.$el-background-width;
 }
